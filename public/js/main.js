@@ -412,4 +412,5 @@
   window.navigation.addEventListener("navigate", (event) => {
     init();
   });
+  init();
 })(jQuery);
