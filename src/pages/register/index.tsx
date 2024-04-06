@@ -1,13 +1,13 @@
 import Layout from "@/app/layout";
-import Page404View from "@/views/Error/404";
+import RegisterView from "@/views/Register";
 import React from "react";
 
-const Page = () => {
+const RegisterPage = () => {
   return (
     <Layout headerData={[]}>
-      <Page404View />
+      <RegisterView />
     </Layout>
   );
 };
 
-export default Page;
+export default RegisterPage;

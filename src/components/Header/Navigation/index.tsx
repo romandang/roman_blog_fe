@@ -33,8 +33,8 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
       }
 
       return (
-        <li className='menu-item-has-children' key={generateRandomKey()}>
-          <a href={item.url}>{item.title}</a>
+        <li className="menu-item-has-children" key={generateRandomKey()}>
+          <Link href={item.url}>{item.title}</Link>
           <ul className={`sub-menu ${isMobile && "font-small"}`}>
             {item.subItem.map((subItem) => {
               return (
@@ -52,11 +52,11 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
   return (
     <nav>
       {/*Desktop menu*/}
-      <ul className='main-menu d-none d-lg-inline'>
+      <ul className="main-menu d-none d-lg-inline">
         {renderNavigation("desktop")}
       </ul>
       {/*Mobile menu*/}
-      <ul id='mobile-menu' className='d-block d-lg-none text-muted'>
+      <ul id="mobile-menu" className="d-block d-lg-none text-muted">
         {renderNavigation("mobile")}
       </ul>
     </nav>

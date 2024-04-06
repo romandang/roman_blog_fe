@@ -391,21 +391,25 @@
     });
   };
 
-  /* WOW active */
-  new WOW().init();
-
+  const init = () => {
+    setTimeout(() => {
+      /* WOW active */
+      new WOW().init();
+      openSearchForm();
+      OffCanvas();
+      scrollToTop();
+      headerSticky();
+      stickySidebar();
+      customSlickSlider();
+      megaMenu();
+      mobileMenu();
+      scrollProgress();
+      masonryGrid();
+      moreArticles();
+    }, 1000);
+  };
   //Load functions
-  setTimeout(() => {
-    openSearchForm();
-    OffCanvas();
-    scrollToTop();
-    headerSticky();
-    stickySidebar();
-    customSlickSlider();
-    megaMenu();
-    mobileMenu();
-    scrollProgress();
-    masonryGrid();
-    moreArticles();
-  }, 1000);
+  window.navigation.addEventListener("navigate", (event) => {
+    init();
+  });
 })(jQuery);

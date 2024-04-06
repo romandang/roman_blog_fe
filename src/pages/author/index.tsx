@@ -1,13 +1,13 @@
 import Layout from "@/app/layout";
-import Page404View from "@/views/Error/404";
+import AuthorView from "@/views/Author";
 import React from "react";
 
-const Page = () => {
+const AuthorPage = () => {
   return (
     <Layout headerData={[]}>
-      <Page404View />
+      <AuthorView />
     </Layout>
   );
 };
 
-export default Page;
+export default AuthorPage;

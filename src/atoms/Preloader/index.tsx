@@ -13,8 +13,8 @@ const Preloader: React.FC<IPreloader> = ({ isLoading = true }) => {
   }, [isLoading]);
 
   return (
-    <div className='preloader text-center'>
-      <div className='loader'></div>
+    <div className="preloader text-center">
+      <div className="loader"></div>
     </div>
   );
 };

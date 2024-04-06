@@ -1,9 +1,7 @@
-import React from "react";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { ICategory } from "@/redux/reducers/common";
-import { Container } from "@mui/material";
-import "./globals.css";
+import React from "react";
 
 interface ILayout {
   children: React.ReactNode;

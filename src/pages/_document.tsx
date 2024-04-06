@@ -10,7 +10,7 @@ import Document, {
 import React from "react";
 class MyDocument extends Document {
   static async getInitialProps(
-    ctx: DocumentContext,
+    ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
     const originalRenderPage = ctx.renderPage;
     const sheets = new ServerStyleSheets();
@@ -37,7 +37,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang='en'>
+      <Html lang="en">
         <Head />
         <body>
           <Main />
