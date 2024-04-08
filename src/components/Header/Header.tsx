@@ -1,13 +1,13 @@
 import Search from "@/atoms/Search";
-import { ICategory } from "@/redux/reducers/common";
 import { PRIVATE_TOKEN } from "@/utils/common";
 import { API } from "@/utils/endpoints";
+import { LOGIN_URL } from "@/utils/routes";
+import Link from "next/link";
 import React from "react";
 import SidebarWrapper from "../SidebarWrapper";
 import Navigation from "./Navigation";
+import NavigationMobile from "./NavigationMobile";
 import { navigationData } from "./mock/navigation";
-import Link from "next/link";
-import { LOGIN_URL } from "@/utils/routes";
 
 export default function Header() {
   return (
@@ -87,7 +87,7 @@ export default function Header() {
                 </button>
               </div>
             </div>
-            <div className="mobile_menu d-lg-none d-block" />
+            <NavigationMobile data={navigationData} />
           </div>
         </div>
       </header>

@@ -4,6 +4,7 @@ import { generateRandomKey } from "@/utils/helper";
 import Link from "next/link";
 
 type NavigationItem = {
+  id: number;
   title: string;
   url: string;
 };
@@ -14,7 +15,7 @@ interface INavigation extends NavigationItem {
   subItem: NavigationItem[];
 }
 
-interface NavigationProps {
+export interface NavigationProps {
   data: INavigation[];
 }
 

@@ -402,7 +402,7 @@
       stickySidebar();
       customSlickSlider();
       megaMenu();
-      mobileMenu();
+      // mobileMenu();
       scrollProgress();
       masonryGrid();
       moreArticles();
