@@ -408,9 +408,20 @@
       moreArticles();
     }, 1000);
   };
-  //Load functions
-  window.navigation.addEventListener("navigate", (event) => {
-    init();
+
+  const observable = () => document.location.pathname;
+
+  let oldValue = observable();
+  const observer = new MutationObserver(() => {
+    const newValue = observable();
+
+    if (oldValue !== newValue) {
+      init();
+      oldValue = newValue;
+    }
   });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
   init();
 })(jQuery);
