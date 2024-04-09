@@ -3,9 +3,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { NavigationProps } from "../Navigation";
 import { generateRandomKey } from "@/utils/helper";
+import { usePathname } from "next/navigation";
 
 const NavigationMobile: React.FC<NavigationProps> = ({ data }) => {
   const [isExpand, setIsExpand] = useState(false);
+  const currentPathName = usePathname();
   const [customData, setCustomData] = useState(
     data.map((item) => {
       return {
@@ -57,9 +59,14 @@ const NavigationMobile: React.FC<NavigationProps> = ({ data }) => {
                   className="menu-item-has-children slicknav_collapsed slicknav_parent"
                   key={generateRandomKey()}
                 >
-                  <Link href={item.url} tabIndex={-1}>
-                    {item.title}
-                  </Link>
+                  {currentPathName === item.url ? (
+                    <a style={{ color: "black" }}>{item.title}</a>
+                  ) : (
+                    <Link href={item.url} tabIndex={-1}>
+                      {item.title}
+                    </Link>
+                  )}
+
                   {item.subItem.map((currentSubitem) => {
                     return (
                       <React.Fragment key={generateRandomKey()}>
@@ -82,9 +89,15 @@ const NavigationMobile: React.FC<NavigationProps> = ({ data }) => {
                             aria-hidden="true"
                           >
                             <li>
-                              <Link href={currentSubitem.url}>
-                                {currentSubitem.title}
-                              </Link>
+                              {currentPathName === currentSubitem.url ? (
+                                <a style={{ color: "black" }}>
+                                  {currentSubitem.title}
+                                </a>
+                              ) : (
+                                <Link href={currentSubitem.url}>
+                                  {currentSubitem.title}
+                                </Link>
+                              )}
                             </li>
                           </ul>
                         )}
