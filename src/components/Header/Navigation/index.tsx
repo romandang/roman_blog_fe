@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import * as _ from "lodash";
 import { generateRandomKey } from "@/utils/helper";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavigationItem = {
   id: number;
@@ -20,6 +22,8 @@ export interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ data }) => {
+  const currentPathName = usePathname();
+
   const renderNavigation = (device: device) => {
     const isMobile = device === "mobile";
     if (_.isEmpty(data)) return <></>;
@@ -28,19 +32,31 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
       if (_.isEmpty(item.subItem)) {
         return (
           <li key={generateRandomKey()}>
-            <Link href={item.url}>{item.title}</Link>
+            {currentPathName === item.url ? (
+              <a>{item.title}</a>
+            ) : (
+              <Link href={item.url}>{item.title}</Link>
+            )}
           </li>
         );
       }
 
       return (
         <li className="menu-item-has-children" key={generateRandomKey()}>
-          <Link href={item.url}>{item.title}</Link>
+          {currentPathName === item.url ? (
+            <a>{item.title}</a>
+          ) : (
+            <Link href={item.url}>{item.title}</Link>
+          )}
           <ul className={`sub-menu ${isMobile && "font-small"}`}>
             {item.subItem.map((subItem) => {
               return (
                 <li key={generateRandomKey()}>
-                  <Link href={subItem.url}>{subItem.title}</Link>
+                  {currentPathName === subItem.url ? (
+                    <a>{subItem.title}</a>
+                  ) : (
+                    <Link href={subItem.url}>{subItem.title}</Link>
+                  )}
                 </li>
               );
             })}
