@@ -1,3 +1,5 @@
+import { updateGlobalMessage } from "@/redux/reducers/auth";
+import { rootReducer } from "@/redux/reducers/root";
 import axios from "axios";
 import { PRIVATE_TOKEN } from "./common";
 
@@ -17,16 +19,22 @@ https.interceptors.request.use(
   }
 );
 
-// Thêm một bộ đón chặn response
+const handleError = (err: any) => {
+  const { response } = err;
+  const { message } = response?.data?.response;
+
+  console.log(response)
+  if (message) {
+    rootReducer.dispatch(updateGlobalMessage(message))
+  }
+
+}
 https.interceptors.response.use(
   function (response) {
-    // Bất kì mã trạng thái nào nằm trong tầm 2xx đều khiến hàm này được trigger
-    // Làm gì đó với dữ liệu response
     return response;
   },
   function (error) {
-    // Bất kì mã trạng thái nào lọt ra ngoài tầm 2xx đều khiến hàm này được trigger\
-    // Làm gì đó với lỗi response
+    handleError(error)
     return Promise.reject(error);
   }
 );

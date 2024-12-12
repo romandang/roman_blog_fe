@@ -7,4 +7,5 @@ export const API = {
   COMMON: {
     GET_ALL_CATEGORIES: `${BASE_URL}/api/categories`,
   },
+  SIGN_IN: `${BASE_URL}/api/auth/signIn`
 };

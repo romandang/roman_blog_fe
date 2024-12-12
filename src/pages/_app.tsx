@@ -4,10 +4,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import NextNProgress from "nextjs-progressbar";
-import { Provider } from "react-redux";
-import { rootReducer } from "../redux/reducers/root";
+import { Provider, useSelector } from "react-redux";
+import { rootReducer, RootState } from "../redux/reducers/root";
 import dynamic from "next/dynamic";
 import "./globals.css";
+import Global from "./global";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const CustomScript = dynamic(() => import("@/atoms/CustomScript"), {
@@ -24,7 +25,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <ClientOnly>
           <ScrollProgress />
           <NextNProgress />
-          <Component {...pageProps} />
+          <Global>
+            <Component {...pageProps} />
+          </Global>
 
           <CustomScript />
         </ClientOnly>
