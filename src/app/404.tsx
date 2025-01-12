@@ -1,4 +1,4 @@
-import Layout from "@/app/layout";
+import Layout from "@/layout/layout";
 import Page404View from "@/views/Error/404";
 import React from "react";
 

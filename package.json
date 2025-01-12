@@ -15,12 +15,13 @@
     "@mui/styles": "^5.15.15",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
+    "client-only": "^0.0.1",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
-    "next": "14.1.4",
+    "next": "15.1.0",
     "nextjs-progressbar": "^0.0.16",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "^7.54.0",
     "react-redux": "^9.1.0"
   },
@@ -28,10 +29,14 @@
     "@types/jquery": "^3.5.29",
     "@types/lodash": "^4.17.0",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4",
+    "eslint-config-next": "15.1.0",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2"
   }
 }

@@ -1,4 +1,4 @@
-import Layout from "@/app/layout";
+import Layout from "@/layout/layout";
 import ContactView from "@/views/Contact";
 import React from "react";
 

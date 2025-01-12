@@ -1,4 +1,5 @@
-import Layout from "@/app/layout";
+"use client";
+import Layout from "@/layout/layout";
 import LoginView from "@/views/Login";
 
 const LoginPage = () => {

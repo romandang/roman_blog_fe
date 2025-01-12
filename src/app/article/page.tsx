@@ -1,4 +1,4 @@
-import Layout from "@/app/layout";
+import Layout from "@/layout/layout";
 import { ICommon } from "@/redux/reducers/common";
 import { PRIVATE_TOKEN } from "@/utils/common";
 import { API } from "@/utils/endpoints";

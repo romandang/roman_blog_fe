@@ -1,15 +1,22 @@
+"use client";
 import Search from "@/atoms/Search";
+import { RootState } from "@/redux/reducers/root";
 import { PRIVATE_TOKEN } from "@/utils/common";
 import { API } from "@/utils/endpoints";
 import { LOGIN_URL } from "@/utils/routes";
 import Link from "next/link";
 import React from "react";
+import { useSelector } from "react-redux";
 import SidebarWrapper from "../SidebarWrapper";
 import Navigation from "./Navigation";
 import NavigationMobile from "./NavigationMobile";
+import UserInfo from "./components/UserInfo/UserInfo";
 import { navigationData } from "./mock/navigation";
 
 export default function Header() {
+  const { userInfo }: any = useSelector<RootState>((state) => state.auth);
+  const { isLoaded, avatar, authorName } = userInfo;
+
   return (
     <React.Fragment>
       <SidebarWrapper />
@@ -82,9 +89,13 @@ export default function Header() {
                 <span className="notice-icon  hover-up-3 active">
                   <img src="/imgs/theme/svg/bell.svg" alt="" />
                 </span>
-                <button className="btn btn-md bg-dark text-white ml-15 box-shadow d-none d-lg-inline">
-                  <Link href={LOGIN_URL}>Sign In</Link>
-                </button>
+                {isLoaded ? (
+                  <UserInfo authorName={authorName} avatar={avatar} />
+                ) : (
+                  <button className="btn btn-md bg-dark text-white ml-15 box-shadow d-none d-lg-inline">
+                    <Link href={LOGIN_URL}>Sign In</Link>
+                  </button>
+                )}
               </div>
             </div>
             <NavigationMobile data={navigationData} />

@@ -6,7 +6,7 @@ import { GET_ALL_CATEGORY } from "./constants/common";
 export const getAllCategories = createAsyncThunk(GET_ALL_CATEGORY, async () => {
   try {
     const response = await https.get(
-      `${API.COMMON.GET_ALL_CATEGORIES}?populate=*`
+      `${API.COMMON.GET_ALL_CATEGORIES}?populate=*`,
     );
     return response.data;
   } catch (error) {

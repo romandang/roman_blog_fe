@@ -1,4 +1,4 @@
-import Layout from "@/app/layout";
+import Layout from "@/layout/layout";
 import AboutView from "@/views/About";
 import React from "react";
 

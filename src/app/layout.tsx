@@ -1,21 +1,20 @@
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import { ICategory } from "@/redux/reducers/common";
-import React from "react";
+import CustomScript from "@/atoms/CustomScript";
+import Head from "next/head";
+import Global from "./global";
+import "./globals.css";
+import StoreProvider from "./StoreProvider";
 
-interface ILayout {
-  children: React.ReactNode;
-  headerData: ICategory[];
-}
-
-const Layout: React.FC<ILayout> = ({ children, headerData }) => {
+export default function MyApp({ children }) {
   return (
-    <>
-      <Header />
-      {children}
-      <Footer />
-    </>
+    <html>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <body>
+        <StoreProvider>
+          <Global>{children}</Global>
+        </StoreProvider>
+      </body>
+    </html>
   );
-};
-
-export default Layout;
+}

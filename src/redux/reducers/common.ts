@@ -9,10 +9,32 @@ export type ICategory = {
 
 export interface ICommon {
   listCategory: ICategory[];
+  homepageData: {
+    mainFeatured: {};
+    trending: {};
+    adbanner: {};
+    articles: {};
+    recents: {};
+    gallerys: {};
+    editorPicked: {};
+    interesting: {};
+    instagramFeatured: {};
+  };
 }
 
 const initialState: ICommon = {
   listCategory: [],
+  homepageData: {
+    mainFeatured: {},
+    trending: {},
+    adbanner: {},
+    articles: {},
+    recents: {},
+    gallerys: {},
+    editorPicked: {},
+    interesting: {},
+    instagramFeatured: {},
+  },
 };
 
 const common = createSlice({

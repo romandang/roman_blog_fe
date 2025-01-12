@@ -1,8 +1,10 @@
-import { signIn } from "@/redux/actions/auth";
+import { getUserInfo, signIn } from "@/redux/actions/auth";
+import { AppDispatch } from "@/redux/reducers/root";
 import { HOME_URL } from "@/utils/routes";
 import { CircularProgress } from "@mui/material";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 interface LoginFormProps {
   username: string;
@@ -16,6 +18,7 @@ const LoginForm = () => {
     formState: { isSubmitting },
   } = useForm<LoginFormProps>();
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
   const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {
     try {
@@ -24,6 +27,7 @@ const LoginForm = () => {
 
       if (access_token) {
         localStorage.setItem("access_token", access_token);
+        await dispatch(getUserInfo());
         router.push(HOME_URL);
       }
     } catch (error) {

@@ -1,29 +1,28 @@
 import { updateGlobalMessage } from "@/redux/reducers/auth";
 import { rootReducer } from "@/redux/reducers/root";
 import axios from "axios";
-import { PRIVATE_TOKEN } from "./common";
 
 const https = axios.create();
 
 https.interceptors.request.use(
   function (config: any) {
-    // Làm gì đó trước khi request dược gửi đi
+    const access_token = localStorage.getItem("access_token");
+
     config.headers = {
-      Authorization: `Bearer ${PRIVATE_TOKEN}`,
+      Authorization: access_token ? `Bearer ${access_token}`: "",
     };
     return config;
   },
   function (error) {
     // Làm gì đó với lỗi request
-    return Promise.reject(error);
+    throw error
   }
 );
 
 const handleError = (err: any) => {
   const { response } = err;
-  const { message } = response?.data?.response;
+  const { message } = response?.data?.response || response?.data;
 
-  console.log(response)
   if (message) {
     rootReducer.dispatch(updateGlobalMessage(message))
   }
@@ -35,7 +34,8 @@ https.interceptors.response.use(
   },
   function (error) {
     handleError(error)
-    return Promise.reject(error);
+    console.log(error)
+    throw error
   }
 );
 
