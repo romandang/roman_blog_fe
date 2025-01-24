@@ -8,18 +8,18 @@ import RecentArticles from "@/components/RecentArticles";
 import Trending from "@/components/Trending";
 
 const HomeView = ({ homepageData }) => {
-  const { mainFeatured } = homepageData;
+  const { mainFeatured, trending, recentArticles, editorPicked } = homepageData;
 
   return (
     <main className="home-page-2">
       {/* <Preloader isLoading={isLoading} /> */}
       <MainFeatured data={mainFeatured} />
-      <Trending />
+      <Trending data={trending} />
       <AdBanner />
-      <RecentArticles />
-      <EditorPicked />
-      <Interesting />
-      <InstagramFeatured />
+      <RecentArticles data={recentArticles} />
+      <EditorPicked data={editorPicked} />
+      {/* <Interesting /> */}
+      {/* <InstagramFeatured /> */}
       <Newsletter />
     </main>
   );

@@ -32,7 +32,6 @@
   // Search form
   var openSearchForm = function () {
     $("button.search-icon").on("click", function () {
-      console.log("alo");
       $("body").toggleClass("open-search-form");
       $(".mega-menu-item").removeClass("open");
       $("html, body").animate({ scrollTop: 0 }, "slow");

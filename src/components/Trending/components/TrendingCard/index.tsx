@@ -12,9 +12,9 @@ const TrendingCard: React.FC<TrendingCardProps> = ({
   categoryUrl,
 }) => {
   return (
-    <div className='col'>
+    <div className="col">
       <div
-        className='border-radius-10 position-relative category-thumb thumb-overlay'
+        className="border-radius-10 position-relative category-thumb thumb-overlay"
         style={{ backgroundImage: `url(${imageUrl}` }}
       >
         <h5>

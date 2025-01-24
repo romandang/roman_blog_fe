@@ -18,7 +18,7 @@ const MainFeatured = ({ data }) => {
                       key={generateRandomKey()}
                       categoryName={currentData.categoryName}
                       categoryUrl={currentData.categoryName}
-                      datePublic={currentData.datePublic}
+                      datePublished={currentData.datePublished}
                       imageUrl={currentData.imageUrl}
                       title={currentData.title}
                     />
