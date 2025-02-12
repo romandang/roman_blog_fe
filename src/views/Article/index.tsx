@@ -1,4 +1,5 @@
 import ArticleBanner from "@/components/ArticleBanner";
+import Filter from "@/components/Filter/Filter";
 import Interesting from "@/components/Interesting";
 import React from "react";
 
@@ -8,6 +9,7 @@ const ArticleView = () => {
       <div className="recent-posts pt-65 pb-65 position-relative">
         <div className="container">
           <ArticleBanner />
+          <Filter />
           <Interesting />
           <div className="text-center mt-65">
             <button className="btn btn-lg bg-dark text-white d-inline-block">

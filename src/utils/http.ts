@@ -9,14 +9,14 @@ https.interceptors.request.use(
     const access_token = localStorage.getItem("access_token");
 
     config.headers = {
-      Authorization: access_token ? `Bearer ${access_token}`: "",
+      Authorization: access_token ? `Bearer ${access_token}` : "",
     };
     return config;
   },
   function (error) {
     // Làm gì đó với lỗi request
-    throw error
-  }
+    throw error;
+  },
 );
 
 const handleError = (err: any) => {
@@ -24,19 +24,18 @@ const handleError = (err: any) => {
   const { message } = response?.data?.response || response?.data;
 
   if (message) {
-    rootReducer.dispatch(updateGlobalMessage(message))
+    // rootReducer.dispatch(updateGlobalMessage(message))
   }
-
-}
+};
 https.interceptors.response.use(
   function (response) {
-    return response;
+    return response?.data?.response;
   },
   function (error) {
-    handleError(error)
-    console.log(error)
-    throw error
-  }
+    handleError(error);
+    console.log(error);
+    throw error;
+  },
 );
 
 export default https;
