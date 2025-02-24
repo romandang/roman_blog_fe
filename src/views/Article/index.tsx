@@ -1,16 +1,68 @@
+"use client";
 import ArticleBanner from "@/components/ArticleBanner";
-import Filter from "@/components/Filter/Filter";
+import Filter from "@/app/article/components/Filter/Filter";
 import Interesting from "@/components/Interesting";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { getAllArticles } from "@/redux/actions/article";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/reducers/root";
+import { useSearchParams } from "next/navigation";
+import https from "@/utils/http";
+import { API } from "@/utils/endpoints";
+import { FilterConfig, FilterData } from "@/types/common";
 
 const ArticleView = () => {
+  const { listArticle } = useSelector((state: RootState) => state.article);
+  const [filterConfig, setFilterConfig] = useState<FilterConfig>({
+    category: "",
+    sort_by: "recently",
+  });
+  const [filterData, setFilterData] = useState<FilterData>({
+    categories: [],
+    sortBy: [],
+  });
+
+  const dispatch = useDispatch();
+  const searchParams = useSearchParams();
+  const createQueryString = useCallback((config: any) => {
+    const params = new URLSearchParams(searchParams.toString());
+    Object.entries(config).forEach(([key, value]) => {
+      if (value) {
+        params.set(key, value.toString());
+      }
+    });
+
+    return params.toString();
+  }, []);
+
+  useEffect(() => {
+    const fetchFilterData = async () => {
+      try {
+        const response = await https.get(API.COMMON.GET_FILTER_CONFIG);
+        setFilterData(response.data);
+      } catch (error) {
+        console.error("Error fetching filter config:", error);
+      }
+    };
+
+    fetchFilterData();
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllArticles(createQueryString(filterConfig)) as any);
+  }, [JSON.stringify(filterConfig)]);
+
   return (
     <main>
       <div className="recent-posts pt-65 pb-65 position-relative">
         <div className="container">
           <ArticleBanner />
-          <Filter />
-          <Interesting />
+          <Filter
+            filterData={filterData}
+            filterConfig={filterConfig}
+            setFilterConfig={setFilterConfig}
+          />
+          <Interesting listArticle={listArticle} />
           <div className="text-center mt-65">
             <button className="btn btn-lg bg-dark text-white d-inline-block">
               Load more posts

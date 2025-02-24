@@ -4,33 +4,26 @@ import Author from "../Author";
 import CommentList from "../CommentList";
 import MorePost from "../MorePost";
 
-const ArticleContentDetail = () => {
+const ArticleContentDetail = ({
+  content,
+  shortDescription,
+}: {
+  content: string;
+  shortDescription: string;
+}) => {
   return (
     <>
       <div className="excerpt mb-30">
-        <p>
-          Gosh jaguar ostrich quail one excited dear hello and bound and the and
-          bland moral misheard roadrunner flapped lynx far that and jeepers
-          giggled far and far bald that roadrunner python inside held shrewdly
-          the manatee.
-        </p>
+        <div className="entry-content">
+          <div
+            className="entry-content"
+            dangerouslySetInnerHTML={{ __html: shortDescription }}
+          />
+        </div>
       </div>
       <div className="entry-main-content wow fadeIn animated">
-        <p>
-          Fretful human far recklessly while caterpillar well a well blubbered
-          added one a some far whispered rampantly whispered while irksome far
-          clung irrespective wailed more rosily and where saluted while black
-          dear so yikes as considering recast to some crass until.
-        </p>
-        <hr className="wp-block-separator is-style-dots" />
-        <p>
-          Thanks sniffed in hello after in foolhardy and some far purposefully
-          much one at the much conjointly leapt skimpily that quail sheep some
-          goodness <a href="#">nightingale</a> the instead exited expedient up
-          far ouch mellifluous altruistic and and lighted more instead much when
-          ferret but the.
-        </p>
-        <figure className="wp-block-gallery columns-3 wp-block-image">
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+        {/* <figure className="wp-block-gallery columns-3 wp-block-image">
           <ul className="blocks-gallery-grid">
             <li className="blocks-gallery-item">
               <a href="#">
@@ -65,9 +58,9 @@ const ArticleContentDetail = () => {
             <i className="ti-credit-card mr-5" />
             Image credit: Behance{" "}
           </figcaption>
-        </figure>
-        <hr className="section-divider" />
-        <p>
+        </figure> */}
+        {/* <hr className="section-divider" /> */}
+        {/* <p>
           Yet more some certainly yet alas abandonedly whispered{" "}
           <a href="#">intriguingly</a>
           <sup>
@@ -77,8 +70,8 @@ const ArticleContentDetail = () => {
           overlaid dear gosh activated less <a href="#">however</a> hawk yet oh
           scratched ostrich some outside crud irrespective lightheartedly and
           much far amenably that the elephant since when.
-        </p>
-        <h2>The Guitar Legends</h2>
+        </p> */}
+        {/* <h2>The Guitar Legends</h2>
         <p>
           Furrowed this in the upset <a href="#">some across</a>
           <sup>
@@ -92,8 +85,8 @@ const ArticleContentDetail = () => {
           besides salamander heron during the jeepers hello fitting jauntily
           much smoothly globefish darn blessedly far so along bluebird leopard
           and.
-        </p>
-        <blockquote>
+        </p> */}
+        {/* <blockquote>
           <p>
             Integer eu faucibus <a href="#">dolor</a>
             <sup>
@@ -111,10 +104,10 @@ const ArticleContentDetail = () => {
           dear so yikes as considering recast to some crass until cow much less
           and rakishly overdrew consistent for by responsible oh one
           hypocritical less bastard hey oversaw zebra browbeat a well.
-        </p>
-        <h3>Getting Crypto Rich</h3>
-        <hr className="wp-block-separator is-style-wide" />
-        <div className="wp-block-image">
+        </p> */}
+        {/* <h3>Getting Crypto Rich</h3> */}
+        {/* <hr className="wp-block-separator is-style-wide" /> */}
+        {/* <div className="wp-block-image">
           <figure className="alignleft is-resized">
             <img
               className="border-radius-5"
@@ -125,8 +118,8 @@ const ArticleContentDetail = () => {
               And far contrary smoked some contrary among stealthy{" "}
             </figcaption>
           </figure>
-        </div>
-        <p>
+        </div> */}
+        {/* <p>
           And far contrary smoked some contrary among stealthy engagingly
           suspiciously a cockatoo far circa sank dully lewd slick cracked llama
           the much gecko yikes more squirrel sniffed this and the the much
@@ -138,15 +131,15 @@ const ArticleContentDetail = () => {
           bland moral misheard roadrunner flapped lynx far that and jeepers
           giggled far and far bald that roadrunner python inside held shrewdly
           the manatee.
-        </p>
-        <hr className="section-divider" />
-        <p>
+        </p> */}
+        {/* <hr className="section-divider" /> */}
+        {/* <p>
           Thanks sniffed in hello after in foolhardy and some far purposefully
           much one at the much conjointly leapt skimpily that quail sheep some
           goodness nightingale the instead exited expedient up far ouch
           mellifluous altruistic and and lighted more instead much when ferret
           but the.
-        </p>
+        </p> */}
         {/*Begin Subcrible*/}
         <div className="border-radius-10 border bg-white mb-30 p-65 wow fadeIn animated text-center">
           <h4 className="mb-0 mt-0">Become a member</h4>
@@ -171,13 +164,13 @@ const ArticleContentDetail = () => {
           </form>
         </div>
         {/*End Subcrible*/}
-        <p>
+        {/* <p>
           Yet more some certainly yet alas abandonedly whispered intriguingly
           well extensive one howled talkative admonishingly below a rethought
           overlaid dear gosh activated less however hawk yet oh scratched
           ostrich some outside crud irrespective lightheartedly and much far
           amenably that the elephant since when.
-        </p>
+        </p> */}
       </div>
       <Tags />
       <Author />

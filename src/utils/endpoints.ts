@@ -9,6 +9,10 @@ export const API = {
     GET_DATA_HOMEPAGE: `${BASE_URL}/api/pages/homepage`,
     GET_FILTER_CONFIG: `${BASE_URL}/api/article/getFilterConfig`,
   },
+  ARTICLE: {
+    GET_ALL_ARTICLE: `${BASE_URL}/api/article/getAllArticle`,
+    GET_ARTICLE_BY_SLUG: `${BASE_URL}/api/article/getArticleBySlug`,
+  },
   AUTH: {
     SIGN_IN: `${BASE_URL}/api/auth/signIn`,
     GET_USER_INFO: `${BASE_URL}/api/auth/getUserInfo`,
