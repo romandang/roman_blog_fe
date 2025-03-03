@@ -3,7 +3,6 @@ import ArticleContentDetail from "@/components/ArticleContentDetail";
 import React from "react";
 
 const ArticleDetailView = ({ article }: { article: any }) => {
-  console.log(article);
   return (
     <main>
       <ArticleBannerDetail
@@ -20,6 +19,7 @@ const ArticleDetailView = ({ article }: { article: any }) => {
       <div className="container single-content">
         <article className="entry-wraper mb-50">
           <ArticleContentDetail
+            id={article.id}
             content={article.content}
             shortDescription={article.shortDescription}
           />

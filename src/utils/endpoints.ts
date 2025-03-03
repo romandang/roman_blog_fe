@@ -12,9 +12,13 @@ export const API = {
   ARTICLE: {
     GET_ALL_ARTICLE: `${BASE_URL}/api/article/getAllArticle`,
     GET_ARTICLE_BY_SLUG: `${BASE_URL}/api/article/getArticleBySlug`,
+    GET_ALL_COMMENT_BY_ARTICLE: `${BASE_URL}/api/article/getAllCommentByArticle`,
   },
   AUTH: {
     SIGN_IN: `${BASE_URL}/api/auth/signIn`,
     GET_USER_INFO: `${BASE_URL}/api/auth/getUserInfo`,
+  },
+  INTERACTIVE: {
+    COMMENT: `${BASE_URL}/api/interactive/comment`,
   },
 };

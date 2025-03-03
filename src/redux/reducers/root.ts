@@ -3,6 +3,8 @@ import blogReducer from "./blog";
 import commonReducer from "./common";
 import authReducer from "./auth";
 import articleReducer from "./article";
+import interactiveReducer from "./interactive";
+
 export const rootReducer = () =>
   configureStore({
     reducer: {
@@ -10,6 +12,7 @@ export const rootReducer = () =>
       common: commonReducer,
       auth: authReducer,
       article: articleReducer,
+      interactive: interactiveReducer,
     },
   });
 

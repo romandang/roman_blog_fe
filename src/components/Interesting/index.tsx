@@ -4,7 +4,6 @@ import CardArticle from "@/atoms/CardArticle";
 import { generateRandomKey } from "@/utils/helper";
 
 const Interesting = ({ listArticle = [] }) => {
-  console.log(listArticle);
   return (
     <section className="trending pb-65 position-relative">
       <div className="container">

@@ -17,17 +17,15 @@ const NavigationMobile: React.FC<NavigationProps> = ({ data }) => {
           isExpand: false,
         })),
       };
-    })
+    }),
   );
 
   const handleClickChildrenExpand = (parentId: number, chilrenId: number) => {
     const cloneCustomData = [...customData];
     const parentIdx = cloneCustomData.findIndex((item) => item.id === parentId);
     if (parentIdx !== -1) {
-      console.log(cloneCustomData[parentIdx].subItem);
-
       const childrenIdx = cloneCustomData[parentIdx].subItem.findIndex(
-        (item) => item.id === chilrenId
+        (item) => item.id === chilrenId,
       );
       if (childrenIdx !== -1) {
         cloneCustomData[parentIdx].subItem[childrenIdx].isExpand =
@@ -76,7 +74,7 @@ const NavigationMobile: React.FC<NavigationProps> = ({ data }) => {
                           onClick={() =>
                             handleClickChildrenExpand(
                               item.id,
-                              currentSubitem.id
+                              currentSubitem.id,
                             )
                           }
                         >
