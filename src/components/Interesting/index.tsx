@@ -21,8 +21,7 @@ const Interesting = ({ listArticle = [] }) => {
               key={generateRandomKey()}
               slug={data.pathAlias}
               timeReading={data.timeReading}
-              authorAvarta={data.authorAvarta}
-              authorName={data.authorName}
+              author={data.author}
               categoryName={data.categoryName}
               categoryUrl={data.categoryUrl}
               imageUrl={data.imageUrl}

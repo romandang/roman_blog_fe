@@ -304,7 +304,7 @@ header .search-icon .ti-close,
 .open-search-form header .search-icon .ti-search{display:none;}
 .open-search-form header .search-icon .ti-close{display:inline;}
 .main-search-form{transform:scaleY(0);height:0px;width:100%;}
-.open-search-form .main-search-form{overflow:hidden;transition:transform 0.2s ease-in-out;height:100vh;transform:scaleY(1);transform-origin:top;position:absolute;background:#fff;z-index:2;}
+.open-search-form .main-search-form{overflow:hidden;transition:transform 0.2s ease-in-out;height:100vh;transform:scaleY(1);transform-origin:top;position:absolute;background:#fff;z-index:10;}
 .search-text-bg{font-size:80px;text-transform:uppercase;opacity:0.1;}
 .main-search-form-cover{max-width:800px;}
 .search-header{font-style:italic;border-radius:10px;overflow:hidden;box-shadow:14px 14px 35px 0 rgba(33,38,106,0.1);}
@@ -566,7 +566,6 @@ blockquote ol:last-child{margin-bottom:0;}
 .comments-area .comment-list:last-child{padding-bottom:0px;}
 .comments-area .comment-list.left-padding{padding-left:25px;}
 .comments-area .thumb{margin-right:20px;}
-.comments-area .thumb img{width:100px;border-radius:50%;}
 .comments-area .date{font-size:14px;color:#999999;margin-bottom:0;margin-left:20px;}
 .comments-area .comment{margin-bottom:10px;color:#777777;font-size:15px;}
 .comments-area .btn-reply{display:inline-block;font-weight:normal;text-decoration:none;margin-right:15px;border-radius:10px;font-size:14px;text-transform:capitalize;border:1px solid var(--color-brand-2);background:var(--color-brand-4);line-height:1;padding:15px 20px;box-shadow:var(--box-shadow-hover);}

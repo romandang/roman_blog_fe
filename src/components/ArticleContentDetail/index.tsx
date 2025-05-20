@@ -1,28 +1,30 @@
 "use client";
 import Tags from "@/atoms/Tags";
-import React, { useEffect, useState } from "react";
-import Author from "../Author";
-import CommentList from "../CommentList";
-import MorePost from "../MorePost";
-import FormComment from "../Form/FormComment";
-import https from "@/utils/http";
-import { API } from "@/utils/endpoints";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/reducers/root";
 import { getCommentByArticleId } from "@/redux/actions/interactive";
+import { RootState } from "@/redux/reducers/root";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Author from "../Author";
+import CommentList from "../CommentList/CommentList";
+import MorePost from "../MorePost";
 
 const ArticleContentDetail = ({
   id,
   content,
   shortDescription,
+  author,
 }: {
   content: string;
   shortDescription: string;
   id: string;
+  author: {
+    name: string;
+    url: string;
+    avatar: string;
+  };
 }) => {
   const { listComment } = useSelector((state: RootState) => state.interactive);
   const dispatch = useDispatch();
-
   useEffect(() => {
     const fetchComments = async () => {
       dispatch(getCommentByArticleId({ articleId: id }) as any);
@@ -66,9 +68,8 @@ const ArticleContentDetail = ({
         </div>
       </div>
       <Tags />
-      <Author />
-      <CommentList comments={listComment} />
-      <FormComment articleId={id} />
+      <Author author={author} />
+      <CommentList comments={listComment} articleId={id} />
 
       <MorePost />
     </>

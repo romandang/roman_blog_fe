@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface CardArticleProps {
   imageUrl: string;
@@ -6,10 +7,13 @@ interface CardArticleProps {
   categoryName: string;
   createdDate: string;
   title: string;
-  authorName: string;
-  authorAvarta: string;
   timeReading: string;
   slug: string;
+  author: {
+    name: string;
+    avatar: string;
+    url: string;
+  };
 }
 
 const CardArticle: React.FC<CardArticleProps> = ({
@@ -18,8 +22,7 @@ const CardArticle: React.FC<CardArticleProps> = ({
   categoryName,
   createdDate,
   title,
-  authorName,
-  authorAvarta,
+  author,
   timeReading,
   slug,
 }) => {
@@ -32,14 +35,14 @@ const CardArticle: React.FC<CardArticleProps> = ({
             backgroundImage: `url(${imageUrl})`,
           }}
         >
-          <a className="img-link" href={`/article/${slug}`} />
+          <Link className="img-link" href={`/article/${slug}`} />
           <div className="post-meta-1 mb-20">
-            <a
+            <Link
               href={categoryUrl}
               className="tag-category bg-brand-1 shadown-1 text-dark button-shadow hover-up-3"
             >
               {categoryName}
-            </a>
+            </Link>
           </div>
         </div>
         <div className="post-content p-30">
@@ -48,13 +51,13 @@ const CardArticle: React.FC<CardArticleProps> = ({
               <span className="post-on has-dot">{createdDate}</span>
             </div>
             <h4 className="post-title mb-30">
-              <a href={`/article/${slug}`}>{title}</a>
+              <Link href={`/article/${slug}`}>{title}</Link>
             </h4>
             <div className="post-meta-2 font-md d-flext">
-              <a href="page-author.html" tabIndex={0}>
-                <img src={authorAvarta} alt="" />
-                <span className="author-namge">{authorName}</span>
-              </a>
+              <Link href={author.url || "#"} tabIndex={0}>
+                <img src={author.avatar} alt={author.name} />
+                <span className="author-namge">{author.name}</span>
+              </Link>
               <span className="time-to-read has-dot">{timeReading}</span>
             </div>
           </div>

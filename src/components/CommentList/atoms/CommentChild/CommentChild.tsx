@@ -1,12 +1,12 @@
-import React from "react";
 
-const Comment = ({ comment }) => {
+const CommentChild = ({ comment }) => {
+  
   return (
     <div className="comment-list wow fadeIn animated">
       <div className="single-comment justify-content-between d-flex">
         <div className="user justify-content-between d-flex">
           <div className="thumb">
-            <img src={comment.authorAvatar} alt="" />
+            <img className="rounded-circle w-[65px]" src={comment.authorAvatar} alt="Avartar" />
           </div>
           <div className="desc">
             <p className="comment">{comment.comment}</p>
@@ -17,11 +17,6 @@ const Comment = ({ comment }) => {
                 </h5>
                 <p className="date">{comment.createdDate} </p>
               </div>
-              <div className="reply-btn">
-                <a href="#" className="btn-reply">
-                  Reply
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -30,4 +25,4 @@ const Comment = ({ comment }) => {
   );
 };
 
-export default Comment;
+export default CommentChild;

@@ -1,17 +1,18 @@
 import Layout from "@/layout/layout";
-import { ICommon } from "@/redux/reducers/common";
-import { PRIVATE_TOKEN } from "@/utils/common";
 import { API } from "@/utils/endpoints";
 import ArticleView from "@/views/Article";
 
-// TODO remove, this demo shouldn't need to reset the theme.
 
-const ArticlePage = () => {
+
+export default async function ArticlePage() {
+  const data = await fetch(API.COMMON.GET_ARTICLE_PAGE);
+  const articlePage = await data.json();
+  const articlePageData = articlePage?.response?.data;
+
   return (
     <Layout headerData={[]}>
-      <ArticleView />
+      <ArticleView articlePageData={articlePageData} />
     </Layout>
   );
 };
 
-export default ArticlePage;

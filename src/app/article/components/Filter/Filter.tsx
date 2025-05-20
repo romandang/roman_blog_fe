@@ -13,8 +13,6 @@ interface FilterProps {
 }
 
 const Filter = ({ filterData, filterConfig, setFilterConfig }: FilterProps) => {
-  const dispatch = useDispatch();
-
   return (
     <Box
       sx={{

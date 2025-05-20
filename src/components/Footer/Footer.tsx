@@ -14,14 +14,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className='col-md-6'>
-              <div className='d-flex text-right text-sm-left align-self-center justify-content-end wow fadeIn animated'>
-                <h5 className='mr-15 text-white mb-0 align-self-center'>
-                  All you need to build new site
-                </h5>
-                <button className='btn btn-lg bg-brand-1'>Download Now</button>
-              </div>
-            </div>
             <div className='col-12'>
               <div className='bottom-line mt-40' />
             </div>

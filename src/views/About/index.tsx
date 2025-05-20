@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const AboutView = () => {
   return (
@@ -25,12 +26,12 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-6'>
-              <img src='/imgs/news/about-1.png' alt='' />
+              <Image src='https://picsum.photos/500/470' alt='About image' width={500} height={470} />
             </div>
           </div>
         </div>
         <div className='shape-arrow'>
-          <img src='/imgs/theme/arrow.png' alt='' />
+          <Image src='/imgs/theme/arrow.png' alt='Arrow shape' width={100} height={100} />
         </div>
       </section>
       <section className='pt-65 pb-65 position-relative'>
@@ -62,10 +63,10 @@ const AboutView = () => {
               </p>
             </div>
           </div>
-          <img src='/imgs/authors/about-9.png' alt='' />
+          <Image src='https://picsum.photos/1000/500' alt='About image' width={1000} height={500} />
         </div>
         <div className='shape-document'>
-          <img src='/imgs/theme/document-2.png' alt='' />
+          <Image src='/imgs/theme/document-2.png' alt='Document shape' width={100} height={100} />
         </div>
       </section>
       <section className='pb-65 position-relative'>
@@ -85,16 +86,18 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-4 text-right'>
-              <img src='/imgs/theme/darts.png' alt='' />
+              <Image src='/imgs/theme/darts.png' alt='Darts icon' width={200} height={200} />
             </div>
           </div>
           <div className='row'>
             <div className='col-lg-4'>
               <div className='value-box'>
-                <img
+                <Image
                   className='value-icon'
                   src='/imgs/theme/rocket.png'
-                  alt=''
+                  alt='Rocket icon'
+                  width={50}
+                  height={50}
                 />
                 <div className='value-content'>
                   <h5 className='mb-15'>Fast &amp; Strong</h5>
@@ -108,10 +111,12 @@ const AboutView = () => {
             </div>
             <div className='col-lg-4'>
               <div className='value-box'>
-                <img
+                <Image
                   className='value-icon'
                   src='/imgs/theme/lighter.png'
-                  alt=''
+                  alt='Lighter icon'
+                  width={50}
+                  height={50}
                 />
                 <div className='value-content'>
                   <h5 className='mb-15'>Creative</h5>
@@ -125,10 +130,12 @@ const AboutView = () => {
             </div>
             <div className='col-lg-4'>
               <div className='value-box'>
-                <img
+                <Image
                   className='value-icon'
                   src='/imgs/theme/brain.png'
-                  alt=''
+                  alt='Brain icon'
+                  width={50}
+                  height={50}
                 />
                 <div className='value-content'>
                   <h5 className='mb-15'>Storm brain</h5>
@@ -152,7 +159,7 @@ const AboutView = () => {
           <h2 className='font-heading mb-50'>Our leadership team</h2>
           <div className='row'>
             <div className='col-lg-3 col-md-6 mb-30'>
-              <img className='mb-30' src='/imgs/authors/about-1.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-1.png' alt='Leo Messi' width={200} height={200} />
               <h5>Leo Messi</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -160,7 +167,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-2.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-2.png' alt='Ana Missar' width={200} height={200} />
               <h5>Ana Missar</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -168,7 +175,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-3.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-3.png' alt='Ken Adison' width={200} height={200} />
               <h5>Ken Adison</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -176,7 +183,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-4.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-4.png' alt='Lemon Trea' width={200} height={200} />
               <h5>Lemon Trea</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -184,7 +191,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-5.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-5.png' alt='Elon Musk' width={200} height={200} />
               <h5>Elon Musk</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -192,7 +199,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-6.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-6.png' alt='Larry Page' width={200} height={200} />
               <h5>Larry Page</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -200,7 +207,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6 mb-md-30'>
-              <img className='mb-30' src='/imgs/authors/about-7.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-7.png' alt='Bill Gates' width={200} height={200} />
               <h5>Bill Gates</h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
@@ -208,7 +215,7 @@ const AboutView = () => {
               </p>
             </div>
             <div className='col-lg-3 col-md-6'>
-              <img className='mb-30' src='/imgs/authors/about-8.png' alt='' />
+              <Image className='mb-30' src='/imgs/authors/about-8.png' alt='Bernard' width={200} height={200} />
               <h5>Bernard </h5>
               <p className='font-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,

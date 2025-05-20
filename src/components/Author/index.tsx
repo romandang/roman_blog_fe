@@ -1,57 +1,60 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-const Author = () => {
+const Author = ({ author }) => {
   return (
     <div className="author-bio mt-50 border-radius-10 bg-white wow fadeIn animated">
       <div className="author-image mb-md-30">
-        <a href="page-author.html">
-          <img
-            src="assets/imgs/authors/author-details.jpg"
-            alt=""
+        <Link href={author.url}>
+          <Image
+            src={author.avatar}
+            alt="Avarta"
             className="avatar"
+            width={100}
+            height={100}
           />
-        </a>
+        </Link>
       </div>
       <div className="author-info">
         <h4 className="font-weight-bold mb-20">
           <span className="vcard author">
             <span className="fn">
-              <a
-                href="page-author.html"
-                title="Posted by Barbara Cartland"
+              <Link
+                href={author.url}
+                title={`Posted by ${author.name}`}
                 rel="author"
               >
-                Barbara Cartland
-              </a>
+                {author.name}
+              </Link>
             </span>
           </span>
         </h4>
         <div className="author-description text-muted">
-          You should write because you love the shape of Flow and sentences and
-          the creation of different words on a page.{" "}
+          {author.description || "No description"}
         </div>
         <h6 className="text-grey-400">Social Media</h6>
         <div className="author-social-small">
           <ul className="author-social-icons">
             <li className="author-social-link-facebook">
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 <i className="elegant-icon social_facebook" />
-              </a>
+              </Link>
             </li>
             <li className="author-social-link-twitter">
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 <i className="elegant-icon social_twitter " />
-              </a>
+              </Link>
             </li>
             <li className="author-social-link-pinterest">
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 <i className="elegant-icon  social_pinterest " />
-              </a>
+              </Link>
             </li>
             <li className="author-social-link-instagram">
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 <i className="elegant-icon social_instagram " />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

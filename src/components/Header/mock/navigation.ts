@@ -6,11 +6,11 @@ export const navigationData = [
     title: "Home",
     url: HOME_URL,
     subItem: [
-      {
-        id: 1,
-        title: "Home",
-        url: "Home default",
-      },
+      // {
+      //   id: 1,
+      //   title: "Home",
+      //   url: "Home default",
+      // },
     ],
   },
   {
@@ -24,11 +24,11 @@ export const navigationData = [
     title: "Article",
     url: ARTICLE_URL,
     subItem: [
-      {
-        id: 1,
-        title: "Home",
-        url: "Home default",
-      },
+      // {
+      //   id: 1,
+      //   title: "Home",
+      //   url: "Home default",
+      // },
     ],
   },
   // {

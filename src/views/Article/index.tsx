@@ -1,25 +1,20 @@
 "use client";
-import ArticleBanner from "@/components/ArticleBanner";
 import Filter from "@/app/article/components/Filter/Filter";
+import ArticleBanner from "@/components/ArticleBanner";
 import Interesting from "@/components/Interesting";
-import React, { useCallback, useEffect, useState } from "react";
 import { getAllArticles } from "@/redux/actions/article";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/reducers/root";
+import { FilterConfig } from "@/types/common";
 import { useSearchParams } from "next/navigation";
-import https from "@/utils/http";
-import { API } from "@/utils/endpoints";
-import { FilterConfig, FilterData } from "@/types/common";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const ArticleView = () => {
+const ArticleView = ({ articlePageData }: { articlePageData: any }) => {
+  const { mostPopularArticle, dataFilter } = articlePageData;
   const { listArticle } = useSelector((state: RootState) => state.article);
   const [filterConfig, setFilterConfig] = useState<FilterConfig>({
     category: "",
     sort_by: "recently",
-  });
-  const [filterData, setFilterData] = useState<FilterData>({
-    categories: [],
-    sortBy: [],
   });
 
   const dispatch = useDispatch();
@@ -36,19 +31,6 @@ const ArticleView = () => {
   }, []);
 
   useEffect(() => {
-    const fetchFilterData = async () => {
-      try {
-        const response = await https.get(API.COMMON.GET_FILTER_CONFIG);
-        setFilterData(response.data);
-      } catch (error) {
-        console.error("Error fetching filter config:", error);
-      }
-    };
-
-    fetchFilterData();
-  }, []);
-
-  useEffect(() => {
     dispatch(getAllArticles(createQueryString(filterConfig)) as any);
   }, [JSON.stringify(filterConfig)]);
 
@@ -56,9 +38,9 @@ const ArticleView = () => {
     <main>
       <div className="recent-posts pt-65 pb-65 position-relative">
         <div className="container">
-          <ArticleBanner />
+          <ArticleBanner data={mostPopularArticle} />
           <Filter
-            filterData={filterData}
+            filterData={dataFilter}
             filterConfig={filterConfig}
             setFilterConfig={setFilterConfig}
           />

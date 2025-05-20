@@ -7,6 +7,7 @@ export const API = {
   COMMON: {
     GET_ALL_CATEGORIES: `${BASE_URL}/api/categories`,
     GET_DATA_HOMEPAGE: `${BASE_URL}/api/pages/homepage`,
+    GET_ARTICLE_PAGE: `${BASE_URL}/api/pages/article`,
     GET_FILTER_CONFIG: `${BASE_URL}/api/article/getFilterConfig`,
   },
   ARTICLE: {
@@ -20,5 +21,6 @@ export const API = {
   },
   INTERACTIVE: {
     COMMENT: `${BASE_URL}/api/interactive/comment`,
+    REPLY_COMMENT: `${BASE_URL}/api/interactive/replyComment`,
   },
 };

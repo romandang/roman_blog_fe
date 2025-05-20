@@ -18,6 +18,18 @@ export const postComment = createAsyncThunk(
   },
 );
 
+export const postReplyComment = createAsyncThunk(
+  POST_COMMENT,
+  async (params: { parentId, comment: string; articleId: string }) => {
+    try {
+      const response = await https.post(`${API.INTERACTIVE.REPLY_COMMENT}`, params);
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  },
+);
+
 export const getCommentByArticleId = createAsyncThunk(
   GET_COMMENT_BY_ARTICLE_ID,
   async (params: { articleId: string }) => {

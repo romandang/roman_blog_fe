@@ -11,15 +11,16 @@ const ArticleDetailView = ({ article }: { article: any }) => {
         categoryUrl={article.categoryUrl}
         datePublished={article.datePublished}
         title={article.title}
-        authorName={article.authorName}
-        authorUrl={article.authorUrl}
-        authorAvarta={article.authorAvarta}
+        authorName={article.author.name}
+        authorUrl={article.author.url}
+        authorAvarta={article.author.avatar}
         timeReading={article.timeReading}
       />
       <div className="container single-content">
         <article className="entry-wraper mb-50">
           <ArticleContentDetail
             id={article.id}
+            author={article.author}
             content={article.content}
             shortDescription={article.shortDescription}
           />
