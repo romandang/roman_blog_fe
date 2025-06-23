@@ -1,6 +1,7 @@
 import Layout from "@/layout/layout";
 import { API } from "@/utils/endpoints";
 import ArticleView from "@/views/Article";
+import { Suspense } from "react";
 
 
 
@@ -11,7 +12,9 @@ export default async function ArticlePage() {
 
   return (
     <Layout headerData={[]}>
-      <ArticleView articlePageData={articlePageData} />
+      <Suspense>
+        <ArticleView articlePageData={articlePageData} />
+      </Suspense>
     </Layout>
   );
 };

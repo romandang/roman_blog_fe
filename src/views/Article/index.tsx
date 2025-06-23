@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const ArticleView = ({ articlePageData }: { articlePageData: any }) => {
-  const { mostPopularArticle, dataFilter } = articlePageData;
+  const { mostPopularArticle, dataFilter } = articlePageData || {};
   const { listArticle } = useSelector((state: RootState) => state.article);
   const [filterConfig, setFilterConfig] = useState<FilterConfig>({
     category: "",
