@@ -4,9 +4,6 @@ services:
     image: romandang/roman_system:fe-1.0.0
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_BASE_URL=http://ec2-54-209-224-117.compute-1.amazonaws.com:3001
