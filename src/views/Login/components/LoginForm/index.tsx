@@ -23,8 +23,7 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {
     try {
       const response = await signIn(data);
-      const { access_token } = response?.response?.data;
-
+      const { access_token } = response;
       if (access_token) {
         localStorage.setItem("access_token", access_token);
         await dispatch(getUserInfo());

@@ -9,6 +9,7 @@ import Trending from "@/components/Trending";
 
 const HomeView = ({ homepageData }) => {
   const { mainFeatured, trending, recentArticles, editorPicked } = homepageData;
+  const isDisplayEditorPicked = editorPicked?.carousels?.length > 0;
 
   return (
     <main className="home-page-2">
@@ -17,7 +18,7 @@ const HomeView = ({ homepageData }) => {
       <Trending data={trending} />
       <AdBanner />
       <RecentArticles data={recentArticles} />
-      <EditorPicked data={editorPicked} />
+      {isDisplayEditorPicked && <EditorPicked data={editorPicked} />}
       {/* <Interesting /> */}
       {/* <InstagramFeatured /> */}
       <Newsletter />

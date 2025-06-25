@@ -12,14 +12,15 @@ import { ICategory } from "@/redux/reducers/common";
 interface ILayout {
   children: React.ReactNode;
   headerData: ICategory[];
+  footerData: any;
 }
 
-const Layout: React.FC<ILayout> = ({ children, headerData }) => {
+const Layout: React.FC<ILayout> = ({ children, headerData, footerData }) => {
   return (
     <>
       <Header />
       {children}
-      <Footer />
+      <Footer footerData={footerData} />
     </>
   );
 };

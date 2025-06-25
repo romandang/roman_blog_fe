@@ -9,6 +9,7 @@ export const API = {
     GET_DATA_HOMEPAGE: `${BASE_URL}/api/pages/homepage`,
     GET_ARTICLE_PAGE: `${BASE_URL}/api/pages/article`,
     GET_FILTER_CONFIG: `${BASE_URL}/api/article/getFilterConfig`,
+    GET_FOOTER: `${BASE_URL}/api/general/getFooter`,
   },
   ARTICLE: {
     GET_ALL_ARTICLE: `${BASE_URL}/api/article/getAllArticle`,

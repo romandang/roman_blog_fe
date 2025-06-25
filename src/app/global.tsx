@@ -15,6 +15,7 @@ const Global = ({ children }) => {
     useSelector<RootState>((state) => state.auth) || {};
   const isLogin = checkIsLogin;
   const [isOpenError, setIsOpenError] = useState<boolean>(false);
+  const [isLoadScript, setIsLoadScript] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
   const handleClose = () => {
     setIsOpenError(false);
@@ -28,6 +29,7 @@ const Global = ({ children }) => {
   }, [globalMessage]);
 
   useEffect(() => {
+    setIsLoadScript(true);
     if (isLogin) {
       dispatch(getUserInfo());
     }
@@ -49,7 +51,7 @@ const Global = ({ children }) => {
       >
         <Alert severity="error">{globalMessage}</Alert>
       </Snackbar>
-      <CustomScript />
+      {isLoadScript && <CustomScript />}
     </Box>
   );
 };

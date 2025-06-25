@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Footer = () => {
+const Footer = ({ footerData }) => {
   return (
     <React.Fragment>
       <footer className='pt-65 bg-dark'>
@@ -26,21 +26,19 @@ const Footer = () => {
                 </div>
                 <div className='textwidget'>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Odio suspendisse leo neque iaculis molestie sagittis
-                    maecenas aenean eget molestie sagittis.
+                    {footerData?.about}
                   </p>
+                  <br/>
                   <p>
                     <strong className='color-black'>Address</strong>
                     <br />
-                    123 Main Street
-                    <br />
-                    New York, NY 10001
+                    {footerData?.address}
                   </p>
+                  <br/>
                   <p>
                     <strong className='color-black'>Phone</strong>
                     <br />
-                    (+01) 234 567 89
+                    {footerData?.phone}
                   </p>
                 </div>
               </div>
@@ -81,30 +79,14 @@ const Footer = () => {
                 data-wow-delay='0.2s'
               >
                 <div className='widget-header-2 position-relative mb-30'>
-                  <h5 className='mt-5 mb-30'>Tagcloud</h5>
+                  <h5 className='mt-5 mb-30'>Tags</h5>
                 </div>
                 <div className='tagcloud mt-50'>
-                  <a className='tag-cloud-link' href='category.html'>
-                    beautiful
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    New York
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    droll
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    intimate
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    loving
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    travel
-                  </a>
-                  <a className='tag-cloud-link' href='category.html'>
-                    fighting{" "}
-                  </a>
+                  {footerData?.tags?.map((item) => (
+                    <a className='tag-cloud-link' href={`/category/${item.slug}`}>
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
