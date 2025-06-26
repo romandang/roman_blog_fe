@@ -16,7 +16,6 @@ const Comment = ({
         <div className="user justify-content-between d-flex">
           <div className="thumb">
             <img
-              className="rounded-circle w-[65px]"
               src={comment.authorAvatar}
               alt="Avartar"
             />

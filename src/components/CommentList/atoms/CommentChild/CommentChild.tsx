@@ -6,7 +6,7 @@ const CommentChild = ({ comment }) => {
       <div className="single-comment justify-content-between d-flex">
         <div className="user justify-content-between d-flex">
           <div className="thumb">
-            <img className="rounded-circle w-[65px]" src={comment.authorAvatar} alt="Avartar" />
+            <img src={comment.authorAvatar} alt="Avartar" />
           </div>
           <div className="desc">
             <p className="comment">{comment.comment}</p>
