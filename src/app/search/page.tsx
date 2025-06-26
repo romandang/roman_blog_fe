@@ -3,7 +3,7 @@ import SearchView from "@/views/SearchView";
 
 const SearchPage = () => {
   return (
-    <Layout headerData={[]}>
+    <Layout>
       <SearchView />
     </Layout>
   );

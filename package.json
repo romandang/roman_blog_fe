@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bprogress/next": "^3.2.12",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.1",
@@ -16,13 +17,14 @@
     "@mui/styles": "^5.15.15",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
+    "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "client-only": "^0.0.1",
+    "css-loader": "^7.1.2",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
-    "next": "15.1.0",
-    "nextjs-progressbar": "^0.0.16",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "next": "^15.4.0-canary.99",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "react-hook-form": "^7.54.2",
     "react-redux": "^9.1.0"
   },
@@ -30,17 +32,17 @@
     "@types/jquery": "^3.5.29",
     "@types/lodash": "^4.17.0",
     "@types/node": "^20",
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
-    "eslint-config-next": "15.1.0",
+    "eslint-config-next": "15.3.4",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   },
   "resolutions": {
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2"
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6"
   }
 }

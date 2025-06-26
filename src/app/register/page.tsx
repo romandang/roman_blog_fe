@@ -4,7 +4,7 @@ import React from "react";
 
 const RegisterPage = () => {
   return (
-    <Layout headerData={[]}>
+    <Layout>
       <RegisterView />
     </Layout>
   );

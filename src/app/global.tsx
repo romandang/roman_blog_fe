@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from "@/redux/reducers/root";
 import { updateGlobalMessage } from "@/redux/reducers/auth";
 import { getUserInfo } from "@/redux/actions/auth";
 import ScrollProgress from "@/atoms/ScrollProgress";
-import NextNProgress from "nextjs-progressbar";
+import { ProgressProvider } from '@bprogress/next/app';
 import CustomScript from "@/atoms/CustomScript";
 import { checkIsLogin } from "@/utils/clientHelper";
 
@@ -36,9 +36,15 @@ const Global = ({ children }) => {
   }, []);
 
   return (
+    <ProgressProvider
+    height="4px"
+    color="#000"
+    options={{ showSpinner: false }}
+    shallowRouting
+  >
     <Box>
       <ScrollProgress />
-      <NextNProgress />
+     
       {children}
       <Snackbar
         anchorOrigin={{
@@ -51,8 +57,9 @@ const Global = ({ children }) => {
       >
         <Alert severity="error">{globalMessage}</Alert>
       </Snackbar>
-      {isLoadScript && <CustomScript />}
-    </Box>
+        {isLoadScript && <CustomScript />}
+      </Box>
+    </ProgressProvider>
   );
 };
 

@@ -4,7 +4,7 @@ import React from "react";
 
 const AuthorPage = () => {
   return (
-    <Layout headerData={[]}>
+    <Layout>
       <AuthorView />
     </Layout>
   );

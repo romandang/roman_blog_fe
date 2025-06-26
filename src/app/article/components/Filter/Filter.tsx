@@ -1,10 +1,6 @@
 "use client";
-import { API } from "@/utils/endpoints";
-import https from "@/utils/http";
-import { Autocomplete, Box, Button, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { FilterConfig, FilterData } from "@/types/common";
+import { Autocomplete, Box, Button, TextField } from "@mui/material";
 
 interface FilterProps {
   filterData: FilterData;
@@ -13,6 +9,7 @@ interface FilterProps {
 }
 
 const Filter = ({ filterData, filterConfig, setFilterConfig }: FilterProps) => {
+  console.log(filterData);
   return (
     <Box
       sx={{

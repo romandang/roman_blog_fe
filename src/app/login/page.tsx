@@ -4,7 +4,7 @@ import LoginView from "@/views/Login";
 
 const LoginPage = () => {
   return (
-    <Layout headerData={[]}>
+    <Layout>
       <LoginView />
     </Layout>
   );

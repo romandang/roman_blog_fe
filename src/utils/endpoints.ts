@@ -7,6 +7,7 @@ export const API = {
   COMMON: {
     GET_ALL_CATEGORIES: `${BASE_URL}/api/categories`,
     GET_DATA_HOMEPAGE: `${BASE_URL}/api/pages/homepage`,
+    GET_ABOUT_US: `${BASE_URL}/api/pages/about-us`,
     GET_ARTICLE_PAGE: `${BASE_URL}/api/pages/article`,
     GET_FILTER_CONFIG: `${BASE_URL}/api/article/getFilterConfig`,
     GET_FOOTER: `${BASE_URL}/api/general/getFooter`,

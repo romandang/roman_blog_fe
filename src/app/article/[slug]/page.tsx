@@ -20,7 +20,7 @@ const ArticleDetailPage = async ({
   const result = await getArticleBySlug(slug);
   const article = result.response.data;
   return (
-    <Layout headerData={[]}>
+    <Layout>
       <ArticleDetailView article={article} />
     </Layout>
   );

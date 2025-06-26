@@ -1,4 +1,3 @@
-import CustomScript from "@/atoms/CustomScript";
 import Head from "next/head";
 import Global from "./global";
 import "./globals.css";

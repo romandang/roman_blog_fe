@@ -1,4 +1,5 @@
 import * as React from "react";
+import { navigationData } from "../Header/mock/navigation";
 
 const Footer = ({ footerData }) => {
   return (
@@ -52,24 +53,13 @@ const Footer = ({ footerData }) => {
                   <h5 className='mt-5 mb-30'>Quick link</h5>
                 </div>
                 <ul className='font-small'>
-                  <li className='cat-item cat-item-2'>
-                    <a href='#'>About me</a>
-                  </li>
-                  <li className='cat-item cat-item-4'>
-                    <a href='#'>Help &amp; Support</a>
-                  </li>
-                  <li className='cat-item cat-item-5'>
-                    <a href='#'>Licensing Policy</a>
-                  </li>
-                  <li className='cat-item cat-item-6'>
-                    <a href='#'>Refund Policy</a>
-                  </li>
-                  <li className='cat-item cat-item-7'>
-                    <a href='#'>Hire me</a>
-                  </li>
-                  <li className='cat-item cat-item-7'>
-                    <a href='#'>Contact</a>
-                  </li>
+                  {
+                    navigationData.map((item) => (
+                      <li className='cat-item cat-item-2' key={item.id}>
+                        <a href={item.url}>{item.title}</a>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             </div>
@@ -83,7 +73,7 @@ const Footer = ({ footerData }) => {
                 </div>
                 <div className='tagcloud mt-50'>
                   {footerData?.tags?.map((item) => (
-                    <a className='tag-cloud-link' href={`/category/${item.slug}`}>
+                    <a className='tag-cloud-link' href={`/category/${item.slug}`} key={item.id}>
                       {item.name}
                     </a>
                   ))}

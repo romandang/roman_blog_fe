@@ -1,13 +1,15 @@
 import Layout from "@/layout/layout";
-import AboutView from "@/views/About";
-import React from "react";
+import { API } from "@/utils/endpoints";
+import AboutUsView from "@/views/AboutUs";
 
-const AboutPage = () => {
+export default async function AboutUsPage() {
+  const resultAboutUs = await fetch(API.COMMON.GET_ABOUT_US);
+  const aboutUs = await resultAboutUs.json();
+  const aboutUsData = aboutUs?.response?.data;
+
   return (
-    <Layout headerData={[]}>
-      <AboutView />
+    <Layout> 
+      <AboutUsView data={aboutUsData} /> 
     </Layout>
   );
 };
-
-export default AboutPage;
