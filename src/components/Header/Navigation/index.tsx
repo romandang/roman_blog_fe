@@ -29,9 +29,10 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
     if (_.isEmpty(data)) return <></>;
 
     return data.map((item) => {
+      const isCurrentItem = currentPathName === item.url;
       if (_.isEmpty(item.subItem)) {
         return (
-          <li key={generateRandomKey()}>
+          <li key={generateRandomKey()} className={`${isCurrentItem ? "current-item" : ""}`}>
             {currentPathName === item.url ? (
               <a>{item.title}</a>
             ) : (
@@ -51,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
           <ul className={`sub-menu ${isMobile && "font-small"}`}>
             {item.subItem.map((subItem) => {
               return (
-                <li key={generateRandomKey()}>
+                <li key={generateRandomKey()} className={`${isCurrentItem ? "current-item" : ""}`}>
                   {currentPathName === subItem.url ? (
                     <a>{subItem.title}</a>
                   ) : (

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 
 type IScriptLoad = {
@@ -38,6 +38,21 @@ const CustomScript = () => {
   const updateScriptLoad = (type: ITypeScriptLoad) => {
     setScriptLoad({ ...scriptLoad, [type]: true });
   };
+
+  useEffect(() => {
+    return () => {
+      setScriptLoad({
+        jquery: false,
+        modernizr: false,
+        slicknav: false,
+        slick: false,
+        wow: false,
+        scrollUp: false,
+        sticky: false,
+        bootstrap: false,
+      }); 
+    }
+  }, []);
 
   return (
     <>

@@ -9,7 +9,6 @@ interface FilterProps {
 }
 
 const Filter = ({ filterData, filterConfig, setFilterConfig }: FilterProps) => {
-  console.log(filterData);
   return (
     <Box
       sx={{

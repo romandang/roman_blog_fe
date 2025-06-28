@@ -1,7 +1,8 @@
-import { getUserInfo, signIn } from "@/redux/actions/auth";
+import { getUserInfo } from "@/redux/actions/auth";
 import { AppDispatch } from "@/redux/reducers/root";
 import { HOME_URL } from "@/utils/routes";
 import { CircularProgress } from "@mui/material";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -22,13 +23,11 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {
     try {
-      const response = await signIn(data);
-      const { access_token } = response;
-      if (access_token) {
-        localStorage.setItem("access_token", access_token);
-        await dispatch(getUserInfo());
-        router.push(HOME_URL);
-      }
+      await signIn("credentials", {
+        username: data.username,
+        password: data.password,
+        callbackUrl: HOME_URL,
+      });
     } catch (error) {
       console.log(error);
     }

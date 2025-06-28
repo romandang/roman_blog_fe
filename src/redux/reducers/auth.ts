@@ -26,6 +26,19 @@ const auth = createSlice({
     },
     signOut: (state) => {
       state.userInfo = {...initialState.userInfo}
+    },
+    updateUserInfo: (state, action) => {
+      const data = action.payload;
+      const { authorName, avatar, email, firstName, lastName, phoneNumber} = data || {};
+      state.userInfo.isLogin = true;
+      state.userInfo.avatar = avatar;
+      state.userInfo.authorName = authorName;
+      state.userInfo.email = email;
+      state.userInfo.firstName = firstName;
+      state.userInfo.lastName = lastName;
+      state.userInfo.phoneNumber = phoneNumber;
+      state.userInfo.isLoaded = true;
+      state.userInfo.isLogin = true;
     }
   },
   extraReducers(builder) {
@@ -47,5 +60,5 @@ const auth = createSlice({
   }
 });
 
-export const { updateGlobalMessage, signOut } = auth.actions
+export const { updateGlobalMessage, signOut, updateUserInfo } = auth.actions
 export default auth.reducer;

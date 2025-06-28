@@ -363,7 +363,7 @@ header .search-icon .ti-close,
 .main-menu{list-style-type:none;margin:0;height:100%;align-items:center;}
 .main-menu > li{height:100%;position:relative;display:inline-block;padding:0 20px;}
 .main-menu > li.current-item a{padding-left:15px!important}
-.main-menu > li.current-item a::before{content:"";background-color:var(--color-primary);width:6px;height:6px;border-radius:50%;position:absolute;left:0;top:50%;margin-top:-3px;animation:shadow-pulse 1s infinite;}
+.main-menu > li.current-item a::before{content:"";background-color:var(--color-brand-1);width:6px;height:6px;border-radius:50%;position:absolute;left:0;top:50%;margin-top:-3px;animation:shadow-pulse 1s infinite;}
 .main-menu > li:first-child{padding-left:0;}
 .main-menu > li.mega-menu-item{position:static;}
 .sub-mega-menu{flex-wrap:wrap;position:absolute;top:unset;left:0;width:100%;transform:scaleY(0);height:0px;}

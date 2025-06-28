@@ -32,7 +32,6 @@ const article = createSlice({
     });
     builder.addCase(getArticlePage.fulfilled, (state, action) => {
       const data = action.payload || [];
-      console.log(data);
       state.dataFilter = data.dataFilter;
       state.mostPopularArticle = data.mostPopularArticle;
     });

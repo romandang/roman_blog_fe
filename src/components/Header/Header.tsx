@@ -1,12 +1,14 @@
 "use client";
 import Search from "@/atoms/Search";
-import { RootState } from "@/redux/reducers/root";
+import { getUserInfo } from "@/redux/actions/auth";
 import { PRIVATE_TOKEN } from "@/utils/common";
 import { API } from "@/utils/endpoints";
 import { LOGIN_URL } from "@/utils/routes";
+import dayjs from "dayjs";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import SidebarWrapper from "../SidebarWrapper";
 import Navigation from "./Navigation";
 import NavigationMobile from "./NavigationMobile";
@@ -14,8 +16,23 @@ import UserInfo from "./components/UserInfo/UserInfo";
 import { navigationData } from "./mock/navigation";
 
 export default function Header() {
-  const { userInfo }: any = useSelector<RootState>((state) => state.auth);
-  const { isLoaded, avatar, authorName } = userInfo;
+  const { data: session, status }: any = useSession();
+  const isLogin = status === "authenticated";
+  const { authorName, avatar, name }: any = session?.user || {};
+  const currentDate = dayjs().format("DD MMMM YYYY");
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    if (isLogin) {
+      dispatch(getUserInfo() as any);
+    }
+  }, [status]);
+
+  if (session?.error === "SessionExpired") {
+    signOut({
+      callbackUrl: "/",
+    });
+  }
 
   return (
     <React.Fragment>
@@ -24,7 +41,7 @@ export default function Header() {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 align-self-center">
-              <span className="date text-muted">Today: 4 November, 2021</span>
+              <span className="date text-muted">Today: {currentDate}</span>
             </div>
             <div className="col-sm-6 text-right align-self-center">
               <ul className="social-network d-inline-block list-inline  mb-0 float-right">
@@ -89,13 +106,17 @@ export default function Header() {
                 <span className="notice-icon  hover-up-3 active">
                   <img src="/imgs/theme/svg/bell.svg" alt="" />
                 </span>
-                {isLoaded ? (
-                  <UserInfo authorName={authorName} avatar={avatar} />
-                ) : (
-                  <button className="btn btn-md bg-dark text-white ml-15 box-shadow d-none d-lg-inline">
-                    <Link href={LOGIN_URL}>Sign In</Link>
-                  </button>
-                )}
+                  {isLogin && <UserInfo 
+                    authorName={authorName || name} 
+                    avatar={avatar} 
+                  />}
+                  {!isLogin && (
+                    <button className="btn btn-md bg-dark text-white ml-15 box-shadow d-none d-lg-inline">
+                      <Link href={LOGIN_URL}>
+                        Sign In
+                      </Link>
+                    </button>
+                  )}
               </div>
             </div>
             <NavigationMobile data={navigationData} />

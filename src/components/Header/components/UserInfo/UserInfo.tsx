@@ -1,7 +1,7 @@
 "use client";
-import { signOut } from "@/redux/reducers/auth";
 import { LOGIN_URL } from "@/utils/routes";
 import { Avatar, Box, Menu, MenuItem, Typography } from "@mui/material";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -33,8 +33,9 @@ const UserInfo: React.FC<UserInfoProps> = ({ authorName, avatar }) => {
       case 0:
         break;
       case 1:
-        dispatch(signOut());
-        router.push(LOGIN_URL);
+        signOut({
+          callbackUrl: LOGIN_URL,
+        })
         break;
 
       default:

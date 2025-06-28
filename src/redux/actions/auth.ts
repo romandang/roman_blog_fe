@@ -15,7 +15,6 @@ export const signIn = async (data: any) => {
 export const getUserInfo = createAsyncThunk(AUTH_USER_INFO, async () => {
   try {
     const response = await https.get(`${API.AUTH.GET_USER_INFO}`);
-    
     return response.data;
   } catch (error) {
     return Promise.reject(error) ;

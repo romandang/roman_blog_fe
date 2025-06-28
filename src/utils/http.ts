@@ -1,12 +1,14 @@
 import { updateGlobalMessage } from "@/redux/reducers/auth";
 import { rootReducer } from "@/redux/reducers/root";
 import axios from "axios";
+import { getSession } from "next-auth/react";
 
 const https = axios.create();
 
 https.interceptors.request.use(
-  function (config: any) {
-    const access_token = localStorage.getItem("access_token");
+  async function (config: any) {
+    const session: any = await getSession();
+    const access_token = session?.accessToken;
 
     config.headers = {
       Authorization: access_token ? `Bearer ${access_token}` : "",
@@ -24,7 +26,7 @@ const handleError = (err: any) => {
   const { message } = response?.data?.response || response?.data;
 
   if (message) {
-    // rootReducer.dispatch(updateGlobalMessage(message))
+    rootReducer().dispatch(updateGlobalMessage(message))
   }
 };
 https.interceptors.response.use(
